@@ -1,20 +1,47 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Pratham U - Personal Portfolio
 
-# Run and deploy your AI Studio app
+A sleek, modern, and highly interactive personal portfolio website showcasing my projects, technical skills, and experience as an AI & Machine Learning Engineering student.
 
-This contains everything you need to run your app locally.
+## 🚀 Built With
 
-View your app in AI Studio: https://ai.studio/apps/8ebfb3a4-b67b-4a27-8ee3-050ef6b46326
+* **Framework:** [Next.js (App Router)](https://nextjs.org/)
+* **Library:** [React](https://reactjs.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Contact Form:** [Formspree](https://formspree.io/)
 
-## Run Locally
+## ✨ Features
 
-**Prerequisites:**  Node.js
+* **Modern, Minimalist UI:** High-contrast dark theme with premium typography and dynamic ambient backgrounds.
+* **Custom Interactive Elements:** Features a custom cursor, smooth scroll interactions, tilt cards, and a bespoke animated preloader.
+* **Responsive Design:** Completely optimized for both desktop and mobile viewing experiences.
+* **Fast & Accessible:** Built on Next.js for high performance and optimal accessibility configurations.
 
+## 💻 Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+To run this project locally, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Pratham-U-dev/<repository-name>.git
+   cd <repository-name>
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 📫 Contact
+
+* **LinkedIn:** [Pratham U](https://www.linkedin.com/in/pratham-u/)
+* **GitHub:** [Pratham-U-dev](https://github.com/Pratham-U-dev)
+* **Email:** pratham.u05@gmail.com
