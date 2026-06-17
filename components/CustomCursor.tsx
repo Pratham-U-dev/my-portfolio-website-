@@ -6,6 +6,8 @@ export default function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   const ringPos = useRef({ x: -100, y: -100 });
   const requestRef = useRef<number>(null);
@@ -20,11 +22,9 @@ export default function CustomCursor() {
     // Init trail array
     trail.current = Array.from({ length: numNodes }, () => ({ x: -100, y: -100 }));
     
-    // Check if device is mobile. If so, disable cursor
-    if (window.innerWidth <= 768) return;
-
     const onMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
       
       // Check for hover
       const target = e.target as HTMLElement;
@@ -34,20 +34,30 @@ export default function CustomCursor() {
 
     const onMouseDown = () => setIsClicking(true);
     const onMouseUp = () => setIsClicking(false);
+    
+    const onMouseLeave = () => {
+      setIsVisible(false);
+    };
+    const onMouseEnter = () => {
+      setIsVisible(true);
+    };
 
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mouseleave', onMouseLeave);
+    document.addEventListener('mouseenter', onMouseEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mouseenter', onMouseEnter);
     };
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth <= 768) return;
     let hue = 0;
 
     const update = () => {
@@ -83,7 +93,7 @@ export default function CustomCursor() {
           node.y += (lastY - node.y) * 0.4;
 
           // Draw segment
-          if (i > 0) {
+          if (i > 0 && isVisible) {
             const prev = trail.current[i - 1];
             ctx.beginPath();
             ctx.moveTo(prev.x, prev.y);
@@ -107,10 +117,11 @@ export default function CustomCursor() {
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [position]);
+  }, [position, isVisible]);
 
   useEffect(() => {
     const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
       if (canvasRef.current) {
         canvasRef.current.width = window.innerWidth;
         canvasRef.current.height = window.innerHeight;
@@ -120,6 +131,8 @@ export default function CustomCursor() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if (isMobile) return null;
 
   return (
     <>
@@ -133,6 +146,8 @@ export default function CustomCursor() {
           height: '100vh',
           pointerEvents: 'none',
           zIndex: 9997,
+          opacity: isVisible ? 1 : 0,
+          transition: 'opacity 0.3s',
         }}
       />
       <div
@@ -148,7 +163,8 @@ export default function CustomCursor() {
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9998,
-          transition: 'width 0.2s, height 0.2s, background 0.2s, background-color 0.2s',
+          opacity: isVisible ? 1 : 0,
+          transition: 'width 0.2s, height 0.2s, background 0.2s, background-color 0.2s, opacity 0.3s',
           transform: 'translate(-50%, -50%)',
           willChange: 'width, height, transform',
         }}
@@ -164,8 +180,9 @@ export default function CustomCursor() {
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9999,
+          opacity: isVisible ? 1 : 0,
           transform: 'translate(-50%, -50%)',
-          transition: 'width 0.15s, height 0.15s',
+          transition: 'width 0.15s, height 0.15s, opacity 0.3s',
           willChange: 'width, height, top, left'
         }}
       />

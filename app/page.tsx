@@ -100,6 +100,7 @@ export default function PortfolioPage() {
           <button 
             className="md:hidden text-white w-6 h-6 relative z-50 focus:outline-none" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
           >
             <span className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${isMobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5'}`} />
             <span className={`block absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
@@ -169,12 +170,12 @@ export default function PortfolioPage() {
 
         {/* ABOUT SECTION */}
         <section id="about" className="section-pad relative z-10 overflow-hidden">
-          <div className="section-watermark">01</div>
+          <div className="section-watermark" aria-hidden="true">01</div>
           <div className="container-custom relative z-10 fade-in-up">
             <div className="section-header mb-12">
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-px bg-zinc-800 w-8" />
-                <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase">ABOUT</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-zinc-400 uppercase">ABOUT</span>
               </div>
               <h2 className="section-title text-4xl font-bold tracking-tighter mb-4">About Me</h2>
               <p className="section-subtitle text-lg text-zinc-400">My professional objective and focus.</p>
@@ -198,12 +199,12 @@ export default function PortfolioPage() {
 
         {/* SKILLS SECTION */}
         <section id="skills" className="section-pad relative z-10 overflow-hidden">
-          <div className="section-watermark">02</div>
+          <div className="section-watermark" aria-hidden="true">02</div>
           <div className="container-custom relative z-10">
             <div className="section-header fade-in-up mb-16">
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-px bg-zinc-800 w-8" />
-                <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase">SKILLS</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-zinc-400 uppercase">SKILLS</span>
               </div>
               <h2 className="section-title text-4xl text-white tracking-tighter font-bold mb-4">Technical Skills</h2>
               <p className="section-subtitle text-zinc-400">Technologies and tools I work with.</p>
@@ -284,7 +285,7 @@ export default function PortfolioPage() {
           <div className="container-custom fade-in-up mb-12">
              <div className="text-center">
                 <h2 className="text-3xl font-bold tracking-tighter text-white mb-4">Works seamlessly with your tech stack</h2>
-                <p className="text-zinc-500">Integrating with my favorite technologies</p>
+                <p className="text-zinc-400">Integrating with my favorite technologies</p>
              </div>
           </div>
           
@@ -301,7 +302,7 @@ export default function PortfolioPage() {
                   { id: 'tailwindcss', file: 'tailwindcss/tailwindcss-original.svg' }
                 ].map((icon, i) => (
                   <div key={i} className="carousel-item-box bg-white/5 border border-white/10">
-                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
+                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} width={48} height={48} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
                   </div>
                 ))}
              </div>
@@ -317,7 +318,7 @@ export default function PortfolioPage() {
                   { id: 'tailwindcss', file: 'tailwindcss/tailwindcss-original.svg' }
                 ].map((icon, i) => (
                   <div key={i+"dup"} className="carousel-item-box bg-white/5 border border-white/10">
-                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
+                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} width={48} height={48} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
                   </div>
                 ))}
              </div>
@@ -335,7 +336,7 @@ export default function PortfolioPage() {
                   { id: 'ubuntu', file: 'ubuntu/ubuntu-original.svg' }
                 ].map((icon, i) => (
                   <div key={i} className="carousel-item-box bg-white/5 border border-white/10">
-                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
+                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} width={48} height={48} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
                   </div>
                 ))}
              </div>
@@ -351,7 +352,7 @@ export default function PortfolioPage() {
                   { id: 'ubuntu', file: 'ubuntu/ubuntu-original.svg' }
                 ].map((icon, i) => (
                   <div key={i+"dup"} className="carousel-item-box bg-white/5 border border-white/10">
-                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
+                    <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon.file}`} alt={icon.id} width={48} height={48} className="brightness-200 grayscale opacity-70 hover:opacity-100 transition-opacity" style={{ filter: 'invert(1) grayscale(100%) brightness(2)' }} />
                   </div>
                 ))}
              </div>
@@ -360,12 +361,12 @@ export default function PortfolioPage() {
 
         {/* PROJECTS SECTION */}
         <section id="projects" className="section-pad relative z-10 overflow-hidden">
-          <div className="section-watermark">03</div>
+          <div className="section-watermark" aria-hidden="true">03</div>
           <div className="container-custom relative z-10 md:px-0">
              <div className="section-header fade-in-up mb-16 md:px-6">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="h-px bg-zinc-800 w-8" />
-                  <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase">PROJECTS</span>
+                  <span className="text-xs font-bold tracking-[0.3em] text-zinc-400 uppercase">PROJECTS</span>
                 </div>
                 <h2 className="section-title text-4xl tracking-tighter font-bold text-white mb-4">Featured Projects</h2>
                 <p className="section-subtitle text-zinc-400">Scroll sideways to view</p>
@@ -377,7 +378,7 @@ export default function PortfolioPage() {
                    <div className="project-header">
                       <h3 className="project-title text-xl">ShieldVision</h3>
                       <div className="project-links">
-                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer" aria-label="GitHub Repository"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                       </div>
                    </div>
                    <div className="project-tech">
@@ -397,7 +398,7 @@ export default function PortfolioPage() {
                    <div className="project-header">
                       <h3 className="project-title text-xl">Aetherion</h3>
                       <div className="project-links">
-                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer" aria-label="GitHub Repository"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                       </div>
                    </div>
                    <div className="project-tech">
@@ -417,7 +418,7 @@ export default function PortfolioPage() {
                    <div className="project-header">
                       <h3 className="project-title text-xl">Tech Pack</h3>
                       <div className="project-links">
-                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        <a href="https://github.com/Pratham-U-dev" target="_blank" rel="noreferrer" aria-label="GitHub Repository"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
                       </div>
                    </div>
                    <div className="project-tech">
@@ -437,12 +438,12 @@ export default function PortfolioPage() {
 
         {/* EDUCATION SECTION */}
         <section id="education" className="section-pad z-10 relative overflow-hidden">
-          <div className="section-watermark">04</div>
+          <div className="section-watermark" aria-hidden="true">04</div>
           <div className="container-custom">
             <div className="section-header fade-in-up mb-16">
                <div className="flex items-center gap-4 mb-4">
                   <div className="h-px bg-zinc-800 w-8" />
-                  <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase">MILESTONES</span>
+                  <span className="text-xs font-bold tracking-[0.3em] text-zinc-400 uppercase">MILESTONES</span>
                 </div>
                <h2 className="section-title text-4xl font-bold tracking-tighter text-white mb-4">Education & Achievements</h2>
                <p className="section-subtitle text-zinc-400">Academic background and key progress.</p>
@@ -498,7 +499,7 @@ export default function PortfolioPage() {
             <div className="footer-info">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px bg-zinc-800 w-8" />
-                <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase">CONTACT</span>
+                <span className="text-xs font-bold tracking-[0.3em] text-zinc-400 uppercase">CONTACT</span>
               </div>
               <h2 className="text-5xl font-bold tracking-tighter text-white mb-6">Let&apos;s build together.</h2>
               <p className="text-lg text-zinc-400 leading-relaxed max-w-md mb-8">
@@ -538,7 +539,7 @@ export default function PortfolioPage() {
                </div>
             </div>
           </div>
-          <div className="footer-bottom mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between text-zinc-500 font-mono text-xs">
+          <div className="footer-bottom mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between text-zinc-400 font-mono text-xs">
             <span>&copy; {new Date().getFullYear()} Pratham U. All rights reserved.</span>
             <span>Handcrafted in India</span>
           </div>
