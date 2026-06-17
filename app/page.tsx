@@ -160,7 +160,7 @@ export default function PortfolioPage() {
               <TiltCard>
                 <div className="relative w-80 h-[420px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 flex">
                   <div className="w-full h-full rounded-xl overflow-hidden bg-zinc-900 border border-white/5 relative">
-                    <Image src={profilePic} alt="Profile Picture" fill className="object-cover" priority />
+                    <Image src={profilePic} alt="Profile Picture" fill sizes="(max-width: 768px) 100vw, 350px" className="object-cover" priority />
                   </div>
                 </div>
               </TiltCard>

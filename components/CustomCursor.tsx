@@ -35,8 +35,10 @@ export default function CustomCursor() {
     const onMouseDown = () => setIsClicking(true);
     const onMouseUp = () => setIsClicking(false);
     
-    const onMouseLeave = () => {
-      setIsVisible(false);
+    const onMouseOut = (e: MouseEvent) => {
+      if (e.relatedTarget === null) {
+        setIsVisible(false);
+      }
     };
     const onMouseEnter = () => {
       setIsVisible(true);
@@ -45,14 +47,14 @@ export default function CustomCursor() {
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
-    document.addEventListener('mouseleave', onMouseLeave);
+    document.addEventListener('mouseout', onMouseOut);
     document.addEventListener('mouseenter', onMouseEnter);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
-      document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mouseout', onMouseOut);
       document.removeEventListener('mouseenter', onMouseEnter);
     };
   }, []);

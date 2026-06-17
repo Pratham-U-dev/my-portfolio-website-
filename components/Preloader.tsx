@@ -17,7 +17,7 @@ export default function Preloader() {
   useEffect(() => {
     // Progress
     const startTime = performance.now();
-    const duration = 3900;
+    const duration = 2300;
     
     let reqId: number;
     const updateProgress = (time: number) => {
@@ -75,7 +75,7 @@ export default function Preloader() {
     // Cat logic
     const stateTimer = setTimeout(() => {
       setCatState('walking');
-    }, 1500);
+    }, 800);
 
     const animTimer = setInterval(() => {
       setCatFrame(f => (f + 1) % 4);
